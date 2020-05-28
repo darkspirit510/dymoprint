@@ -505,15 +505,15 @@ def main(args):
 
     if args.t == 6:
         print('Tape 6mm')
-        labelheight = lm._MAX_BYTES_PER_LINE * 4
+        labelheight = DymoLabeler._MAX_BYTES_PER_LINE * 4
         tapeWidthOffset = 16
     elif args.t == 9:
         print('Tape 9mm')
-        labelheight = lm._MAX_BYTES_PER_LINE * 6
+        labelheight = DymoLabeler._MAX_BYTES_PER_LINE * 6
         tapeWidthOffset = 8
     else:
         print('Tape 12mm (default)')
-        labelheight = lm._MAX_BYTES_PER_LINE * 8
+        labelheight = DymoLabeler._MAX_BYTES_PER_LINE * 8
         tapeWidthOffset = -4
 
     # check if barcode, qrcode or text should be printed, use frames only on text
