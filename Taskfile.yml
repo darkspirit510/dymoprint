@@ -1,0 +1,14 @@
+# https://taskfile.dev
+
+version: '2'
+
+tasks:
+  start-server:
+    cmds:
+      - cmd: python3 frontend.py
+
+  stop-server:
+    silent: true
+    cmds:
+      - cmd: kill -9 "$(lsof -ti tcp:8000)"
+        ignore_error: true
