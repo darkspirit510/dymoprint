@@ -6,4 +6,7 @@ RUN apt update && \
 COPY . /dymoprint
 
 WORKDIR /dymoprint
+
+RUN pip install -r requirements.txt
+
 CMD python frontend.py
