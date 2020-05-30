@@ -1,5 +1,6 @@
-FROM python:slim-buster
+FROM python:buster
 
 COPY . /dymoprint
 
-CMD python /dymoprint/frontend
+WORKDIR /dymoprint
+CMD python frontend.py
