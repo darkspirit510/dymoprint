@@ -10,7 +10,7 @@ cloned for development from https://sbronner.com/dymoprint.html
 
 ## Features
 
-* Works on python 2.7 and 3.3 to 3.8 dev
+* Works on python 3.3 to 3.8
 * Supports text printing
 * Supports qr code printing
 * Supports barcode printing
@@ -123,6 +123,16 @@ Besides the travis-ci one should run the following command on a feature implemen
 ./dymoprint -c code128 Test "bc_txt"
 ```
 
+## Docker
+
+This repository also contains a Dockerfile to print labels in a simple web frontend. With this method you can use
+your Dymo LabelWriter without installation of drivers or python on the host. The downside of this that the 
+container has to run in privileged mode.
+
+```
+docker build --tag dymoprint .
+docker run --privileged --rm -p 8000:8000 -v /dev/bus/usb:/dev/bus/usb -d dymoprint
+```
 
 ### ToDo
 - (?)support multiple ProductIDs (1001, 1002) -> use usb-modeswitch?
