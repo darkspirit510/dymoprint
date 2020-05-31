@@ -22,23 +22,19 @@ from __future__ import division
 from __future__ import print_function
 
 import argparse
-import array
 import contextlib
-import fcntl
-import math
 import os
 import re
 import struct
 import subprocess
+import textwrap
+from configparser import ConfigParser as SafeConfigParser
+
+import array
+import fcntl
+import math
 import sys
 import termios
-import textwrap
-
-try:
-    from configparser import ConfigParser as SafeConfigParser
-except ImportError:  # Python 2
-    from ConfigParser import SafeConfigParser
-
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -67,11 +63,12 @@ DEV_PRODUCT = 0x1002
 DEV_NODE = None
 DEV_NAME = 'Dymo LabelManager PnP'
 # FONT_FILENAME  = '/usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf'
-FONT_CONFIG = {'regular': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf',  # regular font
-               'bold': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf',  # bold font
-               'italic': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-RI.ttf',  # italic font
-               'narrow': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-C.ttf'  # narrow/condensed
-               }
+FONT_CONFIG = {
+    'regular': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf',  # regular font
+    'bold': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf',  # bold font
+    'italic': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-RI.ttf',  # italic font
+    'narrow': '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-C.ttf'  # narrow/condensed
+}
 FONT_SIZERATIO = 1  # 7./8
 CONFIG_FILE = 'dymoprint.ini'
 VERSION = "0.4.0 (2018-02-20)"
