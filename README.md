@@ -127,12 +127,14 @@ Besides the travis-ci one should run the following command on a feature implemen
 
 This repository also contains a Dockerfile to print labels in a simple web frontend. With this method you can use
 your Dymo LabelWriter without installation of drivers or python on the host. The downside of this that the 
-container has to run in privileged mode.
+container has to run in privileged mode. This container has only been tested on a Raspberry Pi.
 
 ```
 docker build --tag dymoprint .
 docker run --privileged --rm -p 8000:8000 -v /dev/bus/usb:/dev/bus/usb -d dymoprint
 ```
+
+http://raspberrypi:8000
 
 ### ToDo
 - (?)support multiple ProductIDs (1001, 1002) -> use usb-modeswitch?
